@@ -59,7 +59,7 @@ const Converter = () => {
         </form>
       </FormProvider>
       {convertMutation.data && (
-        <Grid container justifyContent='center'>
+        <Grid container justifyContent='center' sx={{marginTop: 2}}>
           <Typography variant='body2'>
             {convertMutation.data.amount} {convertMutation.data.from} =
           </Typography>

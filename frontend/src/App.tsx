@@ -8,7 +8,7 @@ function App() {
     <Typography variant='h1' sx={{
       fontSize: 36,
       textAlign: 'center',
-      marginBottom: 16
+      marginBottom: 2
     }}>
       Convert Currencies
     </Typography>
