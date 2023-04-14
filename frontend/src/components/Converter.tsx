@@ -66,7 +66,7 @@ const Converter = () => {
           <Typography variant='body1' sx={{fontWeight: 'bold'}}>
             {convertMutation.data.value} {convertMutation.data.to}
           </Typography>
-        <Grid/>
+        </Grid>
       )}
     </Container>
   )
