@@ -1,0 +1,41 @@
+services:
+  db:
+    container_name: converter_db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: currency_converter
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      converter:
+        aliases:
+          - converter_db
+  backend:
+    container_name: converter_backend
+    restart: always
+    build: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "db"
+    networks:
+      converter:
+        aliases:
+          - converter_backend
+  frontend:
+    container_name: converter_frontend
+    restart: always
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      converter:
+        aliases:
+          - converter_frontend
+
+networks:
+  converter:
